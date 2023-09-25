@@ -1,3 +1,51 @@
+<?php 
+
+$valor= '';
+$desde= '';
+$hasta= '';
+
+function convertir_a_metros($valor, $unidad_desde){
+
+    switch($unidad_desde){
+
+        case 'Milimetro':
+            return $valor / 1000;
+        break
+
+        case 'Centimetro':
+            return $valor / 100;
+        break
+
+        case 'Decimetro':
+            return $valor / 10;
+        break
+
+        case 'Metro':
+            return $valor * 1;
+        break
+
+        case 'Decametro':
+            return $valor * 10;
+        break
+
+        case 'Hectometro':
+            return $valor * 100;
+        break
+
+        case 'Kilometro':
+            return $valor * 1000;
+        break
+        
+        default:
+            return 'Unidad de medida no soportada'
+        break
+    }
+}
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,7 +66,7 @@
 
     <div class="conteiner">
 
-        <form>
+        <form method="POST">
             <div class="row mt-4">
 
                 <div class="col-sm-4">
@@ -30,7 +78,7 @@
 
                 <div class="col-sm-4">
                     <label for="desde" class="form-label">Desde:</label>
-                    <select class="form-select">
+                    <select class="form-select" name="desde">
                         <option value="">--Selecciona un valor--</option>
                         <option value="Milimetro">Milimetro</option>
                         <option value="Centimetro">Centimetro</option>
@@ -44,7 +92,7 @@
 
                 <div class="col-sm-4">
                     <label for="desde" class="form-label">Hasta:</label>
-                    <select class="form-select">
+                    <select class="form-select" name="hasta">
                         <option value="">--Selecciona un valor--</option>
                         <option value="Milimetro">Milimetro</option>
                         <option value="Centimetro">Centimetro</option>
@@ -59,13 +107,13 @@
                 <div class="row mt-4">
 
                     <div class="col-sm-6">
-                        <button type="submit" class="btn btn-primary w-100 py-4">CONVERTIR</button>
+                        <button type="submit" name="convertir" class="btn btn-primary w-100 py-4">CONVERTIR</button>
                     </div>
 
                     <div class="col-sm-6">
                         <div class="mb-3">
                             <label for="resultado" class="form-label">RESULTADO:</label>
-                            <input type="text" class="form-control">
+                            <input type="text"  name="resultado" class="form-control">
                         </div>
                     </div>
                 </div>
